@@ -1,12 +1,12 @@
 
-let ObjectID = require('mongodb').ObjectID
+const ObjectID = require('mongodb').ObjectID
 const path = require('path');
 
-var db
+let db
 
 module.exports = (app, dbLink) => {
 	db = dbLink
-  app.get("/", function(req, res) {
+  app.get("/", (req, res) => {
 		res.sendFile(path.join(__dirname, '..','frontend/user.html'));
   });
 	app.post('/registry', (req, res) => {
@@ -74,14 +74,14 @@ module.exports = (app, dbLink) => {
 }
 
 function getRequestBody(req, callback) {
-	var body = '';
-	req.on('data', function (data) {
+	let body = '';
+	req.on('data', (data) => {
 		body += data;
 		if (body.length > 1e6) { 
 			req.connection.destroy()
 		}
 	});
-	req.on('end', function() {
+	req.on('end', () => {
 		if (isValidJson(body)) {
 			return callback(JSON.parse(body))
 		} else {

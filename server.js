@@ -1,7 +1,7 @@
 
 const express = require('express');
 const app = express();
-var routes = require("./routes/registry.js");
+const routes = require("./routes/registry.js");
 
 const port = process.env.PORT || 8080;
 const appMode = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : 'production')
@@ -10,6 +10,8 @@ const MongoClient = require('mongodb').MongoClient
 const config = require('./config/config')
 const dbPath = process.env.MONGO_URI || config.dbPath
 const dbName = process.env.MONGO_DB || config.dbName
+
+let db
 
 if (appMode !== 'production') {
 	const webpack = require('webpack')
@@ -29,22 +31,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('frontend/dist'))
 
-
-var globalTunnel = require('global-tunnel');
-globalTunnel.initialize({
-  host: '172.16.12.165',
-  protocol: 'mongodb',
-  port: 8080,
-  sockets: 50 // optional pool size for each http and https 
-});
-
-var db
-
 MongoClient.connect(dbPath, { useNewUrlParser: true }, (err, client) => {
   if (err) return console.log(err)
   db = client.db(dbName)
 	routes(app, db);
-	app.listen(port, function(error) { 
+	app.listen(port, (error) => { 
 		if (error) { 
 			console.error(error) 
 		} else {

@@ -34,11 +34,25 @@ function SimpleExpansionPanel(props) {
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<Typography>
-								<span style={{fontWeight:700}}>Наименование:</span><br />{n.name}<br />
-								<span style={{fontWeight:700}}>Значение 1:</span>{' ' + n.value1}<br />
-								<span style={{fontWeight:700}}>Значение 2:</span>{' ' + n.value2}<br />
-								<span style={{fontWeight:700}}>Значение 3:</span>{' ' + n.value3}<br />
-								<span style={{fontWeight:700}}>Значение 4:</span>{' ' + n.value4}<br />
+								<span style={{fontWeight:700}}>
+									{props.i18n.NAME + ':'}
+								</span><br />{n.name}<br />
+								<span style={{fontWeight:700}}>
+									{props.i18n.VALUE_1 + ':'}
+								</span>
+								{' ' + n.value1}<br />
+								<span style={{fontWeight:700}}>
+									{props.i18n.VALUE_2 + ':'}
+								</span>
+								{' ' + n.value2}<br />
+								<span style={{fontWeight:700}}>
+									{props.i18n.VALUE_3 + ':'}
+								</span>
+								{' ' + n.value3}<br />
+								<span style={{fontWeight:700}}>
+									{props.i18n.VALUE_4 + ':'}
+								</span>
+								{' ' + n.value4}<br />
 								<br />
 								<Button mini variant="fab" onClick={() => props.onClickRecord(n._id)}>
 									<EditIcon />

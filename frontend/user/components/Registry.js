@@ -50,11 +50,13 @@ function ButtonAppBar(props) {
 				<Paper className={classes.root} elevation={1}>
 					{isBrowser ? 
 						<Table 
+							i18n={props.i18n}
 							registry={props.registry} 
 							onClickRecord={props.onClickRecord} 
 						/>
 					:
 						<Expension 
+							i18n={props.i18n}
 							registry={props.registry} 
 							onClickRecord={props.onClickRecord} 
 						/>

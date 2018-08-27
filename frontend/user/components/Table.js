@@ -29,24 +29,46 @@ function SimpleTable(props) {
 			<Table className={classes.table}>
 				<TableHead>
 					<TableRow>
-						<TableCell className={classes.tableCell}>Наименование</TableCell>
-						<TableCell className={classes.tableCell} numeric>Значение 1</TableCell>
-						<TableCell className={classes.tableCell} numeric>Значение 2</TableCell>
-						<TableCell className={classes.tableCell} numeric>Значение 3</TableCell>
-						<TableCell className={classes.tableCell} numeric>Значение 4</TableCell>
+						<TableCell className={classes.tableCell}>
+							{props.i18n.NAME}
+						</TableCell>
+						<TableCell className={classes.tableCell} numeric>
+							{props.i18n.VALUE_1}
+						</TableCell>
+						<TableCell className={classes.tableCell} numeric>
+							{props.i18n.VALUE_2}
+						</TableCell>
+						<TableCell className={classes.tableCell} numeric>
+							{props.i18n.VALUE_3}
+						</TableCell>
+						<TableCell className={classes.tableCell} numeric>
+							{props.i18n.VALUE_4}
+						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{props.registry.map(n => {
 						return (
-							<TableRow key={n._id} hover onClick={() => props.onClickRecord(n._id)}>
+							<TableRow 
+								key={n._id} 
+								hover 
+								onClick={() => props.onClickRecord(n._id)}
+							>
 								<TableCell component="th" scope="row" className={classes.tableCell}>
 									{n.name}
 								</TableCell>
-								<TableCell className={classes.tableCell} numeric>{n.value1}</TableCell>
-								<TableCell className={classes.tableCell} numeric>{n.value2}</TableCell>
-								<TableCell className={classes.tableCell} numeric>{n.value3}</TableCell>
-								<TableCell className={classes.tableCell} numeric>{n.value4}</TableCell>
+								<TableCell className={classes.tableCell} numeric>
+									{n.value1}
+								</TableCell>
+								<TableCell className={classes.tableCell} numeric>
+									{n.value2}
+								</TableCell>
+								<TableCell className={classes.tableCell} numeric>
+									{n.value3}
+								</TableCell>
+								<TableCell className={classes.tableCell} numeric>
+									{n.value4}
+								</TableCell>
 							</TableRow>
 						);
 					})}

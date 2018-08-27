@@ -72,7 +72,7 @@ function ButtonAppBar(props) {
 								<br/>
 								<FormControl fullWidth>
 									<TextField 
-										label="НАИМЕНОВАНИЕ"
+										label={props.i18n.NAME}
 										value={props.record.name}
 										onChange={(e) => props.change({name:e.target.value})}
 									/>
@@ -82,7 +82,7 @@ function ButtonAppBar(props) {
 								<TextField
 									value={props.record.value1}
 									onChange={(e) => props.change({value1:e.target.value})}
-									label="ЗНАЧЕНИЕ 1"
+									label={props.i18n.VALUE_1}
 									type="number"
 									className={classes.textField}
 									margin="normal"
@@ -92,7 +92,7 @@ function ButtonAppBar(props) {
 								<TextField
 									value={props.record.value2}
 									onChange={(e) => props.change({value2:e.target.value})}
-									label="ЗНАЧЕНИЕ 2"
+									label={props.i18n.VALUE_2}
 									type="number"
 									className={classes.textField}
 									margin="normal"
@@ -102,7 +102,7 @@ function ButtonAppBar(props) {
 								<TextField
 									value={props.record.value3}
 									onChange={(e) => props.change({value3:e.target.value})}
-									label="ЗНАЧЕНИЕ 3"
+									label={props.i18n.VALUE_3}
 									type="number"
 									className={classes.textField}
 									margin="normal"
@@ -112,7 +112,7 @@ function ButtonAppBar(props) {
 								<TextField
 									value={props.record.value4}
 									onChange={(e) => props.change({value4:e.target.value})}
-									label="ЗНАЧЕНИЕ 4"
+									label={props.i18n.VALUE_4}
 									type="number"
 									className={classes.textField}
 									margin="normal"
@@ -125,14 +125,18 @@ function ButtonAppBar(props) {
 										onClick={() => props.save()}
 									>
 										<SaveIcon />
-										<span style={styleLabel}>СОХРАНИТЬ</span>
+										<span style={styleLabel}>
+											{props.i18n.SAVE}
+										</span>
 									</Button>
 									&nbsp;&nbsp;&nbsp;
 									<Button mini variant="contained" color="secondary"
 										onClick={() => props.close()}
 									>
 										<CloseIcon />
-										<span style={styleLabel}>ЗАКРЫТЬ</span>
+										<span style={styleLabel}>
+											{props.i18n.CLOSE}
+										</span>
 									</Button>
 									{props.delete !== undefined ? 
 										<span>
@@ -141,7 +145,9 @@ function ButtonAppBar(props) {
 												onClick={() => props.delete()}
 											>
 												<DeleteIcon />
-												<span style={styleLabel}>УДАЛИТЬ</span>
+												<span style={styleLabel}>
+													{props.i18n.DELETE}
+												</span>
 											</Button>
 										</span>
 									:

@@ -170,11 +170,16 @@ export default createReactClass({
 					<br />
 					
 					<div style={this.displayMe('registry')}>
-						<Registry registry={this.state.registry} onClickRecord={this.onClickRecord} />
+						<Registry 
+							i18n={this.state.i18n[this.state.lang]}
+							registry={this.state.registry} 
+							onClickRecord={this.onClickRecord} 
+						/>
 					</div>
 					
 					<div style={this.displayMe('newRec')}>
 						<Record 
+							i18n={this.state.i18n[this.state.lang]}
 							record={this.state.record}
 							change={this.setRecord}
 							save={this.saveNewRecord} 
@@ -184,6 +189,7 @@ export default createReactClass({
 					
 					<div style={this.displayMe('editRec')}>
 						<Record 
+							i18n={this.state.i18n[this.state.lang]}
 							record={this.state.record}
 							change={this.setRecord}
 							save={this.saveEditRecord} 

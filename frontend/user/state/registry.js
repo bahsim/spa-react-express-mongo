@@ -1,6 +1,10 @@
 
+import { i18n } from '../i18n';
+
 export function initializeState() {
 	return {
+		lang: 'en',
+		i18n: i18n,
 		isLoading: true,
 		hasErrored: false,
 		errorMessage: '',

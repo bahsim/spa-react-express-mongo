@@ -18,10 +18,10 @@ import {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#1db15c',
+      main: '#0093e7',
     },
     secondary: {
-      main: '#00e676',
+      main: '#e39b3d',
     },
   },
 });
@@ -46,25 +46,11 @@ function ButtonAppBar(props) {
 			<div className={classes.root}>
 				<AppBar position="static">
 					<Toolbar>
-						{isBrowser ? (
-							<Typography variant="display1" className={classes.flex}>
-								<span style={{color:'white',display:'inline-flex',verticalAlign:'middle'}}>
-									<img src="/logoInv.png" alt="" width="56" height="56" />&nbsp;&nbsp;&nbsp;
-								</span>
-								<span style={{color:'white',display:'inline-flex',verticalAlign:'middle'}}>
-									электронный журнал
-								</span>
-							</Typography>
-						) : (
-							<Typography variant="headline" className={classes.flex}>
-								<span style={{color:'white',display:'inline-flex',verticalAlign:'middle'}}>
-									<img src="/logoInv.png" alt="" width="56" height="56" />&nbsp;
-								</span>
-								<span style={{color:'white',display:'inline-flex',verticalAlign:'middle'}}>
-									эл.журнал
-								</span>
-							</Typography>
-						)}
+						<Typography variant="display1" className={classes.flex}>
+							<span style={{color:'white',display:'inline-flex',verticalAlign:'middle'}}>
+								<img src="/logo.png" alt="" width="130" height="60" />
+							</span>
+						</Typography>
 						<div style={props.displayMe('registry')}>
 							<Button mini variant="fab" aria-label="Add" color="secondary"
 								onClick={() => props.onClickAdd()}

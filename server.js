@@ -4,7 +4,10 @@ const app = express();
 const routes = require("./routes/registry.js");
 
 const port = process.env.PORT || 8080;
-const appMode = (process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : 'production')
+const appMode = (
+	process.env.NODE_ENV !== undefined ? 
+		(process.env.NODE_ENV) : ('production1')
+)
 
 const MongoClient = require('mongodb').MongoClient
 const config = require('./config/config')

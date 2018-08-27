@@ -36,6 +36,16 @@ export default createReactClass({
 		loaderInit.outerHTML = '';
 		app.hidden = false;
 	},
+	componentDidUpdate() {
+		let color = (
+			this.state.hasErrored == false && this.state.isLoading == false ? (
+				color = 'white'
+			) : (
+				color = '#0093e7'
+			)
+		)
+		document.body.style.backgroundColor = color;
+	},
 	onClickAdd() {
 		this.setState({ 
 			record: {...this.state.recordInit},
@@ -141,12 +151,12 @@ export default createReactClass({
 			<div className="container" tabIndex="-1" style={{outline: 0}}>
 				
 				<div className="loader" style={styleLoaderError}>
-					<img src="/logo.png" width="200vw" height="200vw" alt="" />
+					<img src="/logo.png" width="200vw" height="100vw" alt="" />
 					<h2>{this.state.errorMessage}</h2>
 				</div>
 				
 				<div className="loader" style={styleLoaderWait}>
-					<img src="/logo.png" width="200vw" height="200vw" alt="" />
+					<img src="/logo.png" width="200vw" height="100vw" alt="" />
 					<h2>работа кипит...</h2>
 				</div>
 				

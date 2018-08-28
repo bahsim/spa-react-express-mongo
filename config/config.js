@@ -4,9 +4,8 @@
 */
 let Config = function () {
 	return {
-		dbName:	"statfir",
-		//dbPath: "mongodb://localhost:27017", 
-		dbPath : "mongodb://dbuser:dbpassword1@ds261521.mlab.com:61521/statfir", 
+		dbName:	"myDb",
+		dbPath: "mongodb://172.16.12.221:27017", 
 	};
 };
 
